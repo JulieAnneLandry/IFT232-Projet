@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class Grille extends JPanel
 {
+	private static final long serialVersionUID = 1L;
 	protected Carre[][] carres;
 
 	public Grille(){
@@ -24,7 +25,7 @@ public class Grille extends JPanel
 	private void creerCarres(){
 		for (int i = 0; i < 8; i++){
 			for (int j = 0; j < 8; j++){
-				Carre p = new Carre((i+1) + "," + (j+1));
+				Carre p = new Carre(i, j);
 				p.setBackground(choisirCouleur(i,j));
 				add(p);
 				carres[i][j] = p;
@@ -43,14 +44,16 @@ public class Grille extends JPanel
 
 	public void ajouterPiece(Piece p, int x, int y){
 		carres[x][y].add(p);
+	}
+	
+	public void afficherTout(){
 		paintAll(getGraphics());
 	}
-
 
 	public static void main(String[] args){
 		Grille grille = new Grille();
 
-		//Ajouter les pions de chaque côté
+		//Ajouter les pions de chaque cï¿½tï¿½
 		for (int i = 0;i < 8; i++){
 			grille.ajouterPiece(new Piece("res/pionDore.png"), 1, i);
 			grille.ajouterPiece(new Piece("res/pionBlanc.png"), 6, i);
@@ -82,7 +85,8 @@ public class Grille extends JPanel
 		grille.ajouterPiece(new Piece("res/roiDore.png"), 0, 3);
 		grille.ajouterPiece(new Piece("res/roiBlanc.png"), 7, 3);
 
-		// Créer JFrame et afficher tout
+		// Crï¿½er JFrame et afficher tout
+		grille.afficherTout();
 		JFrame frame = new JFrame();
 		frame.setSize(800,700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
