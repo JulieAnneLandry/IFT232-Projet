@@ -1,5 +1,7 @@
 package pieces;
 
+import java.awt.Point;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -17,7 +19,14 @@ public class Rook extends Piece {
 	}
 
 	@Override
-	public void move() {
-		// TODO Auto-generated method stub
+	public void setOptions() {
+		/*
+		 * Point coor = myCase.getPoint();
+		 * Point opt = coor; 
+		 * for (int i = 0; i < 8; i++) { 
+		 * opt.move(i, 0); 
+		 * options.add(opt);
+		 *  }
+		 */
 	}
 }

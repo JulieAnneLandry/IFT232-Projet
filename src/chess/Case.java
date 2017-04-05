@@ -13,12 +13,6 @@ public class Case extends JPanel implements MouseListener {
 	private static final long serialVersionUID = 1L;
 	private Point pXY;
 
-	// Transition prochaine vers singleton
-	private static Piece pieceEnDeplacement;
-
-	// Va disparaitre quand le singleton va etre implemente
-	private static boolean enDeplacement = false;
-
 	private JLabel label;
 	private Piece piece;
 
@@ -44,6 +38,7 @@ public class Case extends JPanel implements MouseListener {
 
 	public void setPiece(Piece p) {
 		piece = p;
+		piece.setCase(this);
 		label.setIcon(p.getImage());
 		afficherPiece();
 	}
@@ -53,6 +48,10 @@ public class Case extends JPanel implements MouseListener {
 		label.setIcon(null);
 		afficherPiece();
 	}
+	
+	public Point getPoint(){
+		return pXY;
+	}
 
 	public void afficherPiece() {
 		update(getGraphics());
@@ -60,22 +59,12 @@ public class Case extends JPanel implements MouseListener {
 
 	public void mouseClicked(MouseEvent e) {
 
-		if (!enDeplacement) {
-
-			if (piece != null) {
-				pieceEnDeplacement = piece;
-				removePiece();
-				enDeplacement = true;
-			} else {
-				pieceEnDeplacement = null;
-			}
-
+		if (MovingPiece.isEmpty()) {
+			MovingPiece.take(piece, this);
 		} else {
-
-			setPiece(pieceEnDeplacement);
-			enDeplacement = false;
-
+			MovingPiece.place(this);
 		}
+
 	}
 
 	// Choisir la couleur du carre en fonction de sa position sur la grille

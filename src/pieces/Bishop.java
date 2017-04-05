@@ -18,7 +18,7 @@ public class Bishop extends Piece {
 	}
 
 	@Override
-	public void move() {
+	public void setOptions() {
 		// TODO Auto-generated method stub
 
 	}
