@@ -5,7 +5,8 @@ import javax.swing.ImageIcon;
 
 public class Bishop extends Piece {
 
-	private static final Icon BISHOP_GOLD = new ImageIcon("res/fouDore.png");
+    private static final long serialVersionUID = 1L;
+    private static final Icon BISHOP_GOLD = new ImageIcon("res/fouDore.png");
 	private static final Icon BISHOP_WHITE = new ImageIcon("res/fouBlanc.png");
 
 	
@@ -22,4 +23,12 @@ public class Bishop extends Piece {
 		// TODO Auto-generated method stub
 
 	}
+
+    
+
+    @Override
+    public char pieceKey()
+    {
+        return 'F';
+    }
 }

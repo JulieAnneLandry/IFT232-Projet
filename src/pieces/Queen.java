@@ -5,7 +5,8 @@ import javax.swing.ImageIcon;
 
 public class Queen extends Piece {
 
-	private static final Icon QUEEN_GOLD = new ImageIcon("res/reineDore.png");
+    private static final long serialVersionUID = 1L;
+    private static final Icon QUEEN_GOLD = new ImageIcon("res/reineDore.png");
 	private static final Icon QUEEN_WHITE = new ImageIcon("res/reineBlanc.png");
 
 	public Queen(boolean team) {
@@ -21,4 +22,12 @@ public class Queen extends Piece {
 		// TODO Auto-generated method stub
 
 	}
+
+    
+
+    @Override
+    public char pieceKey()
+    {
+        return 'R';
+    }
 }

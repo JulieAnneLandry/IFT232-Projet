@@ -5,7 +5,8 @@ import javax.swing.ImageIcon;
 
 public class Pawn extends Piece {
 
-	private static final Icon PAWN_GOLD = new ImageIcon("res/pionDore.png");
+    private static final long serialVersionUID = 1L;
+    private static final Icon PAWN_GOLD = new ImageIcon("res/pionDore.png");
 	private static final Icon PAWN_WHITE = new ImageIcon("res/pionBlanc.png");
 
 	public Pawn(boolean team) {
@@ -20,5 +21,13 @@ public class Pawn extends Piece {
 	public void setOptions() {
 
 	}
+
+   
+
+    @Override
+    public char pieceKey()
+    {
+        return 'P';
+    }
 
 }
