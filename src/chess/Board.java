@@ -1,6 +1,8 @@
 package chess;
 
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 import pieces.*;
@@ -9,13 +11,14 @@ public class Board extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	protected Case[][] cases;
+	private ArrayList<Piece> pieceBox;
 
 	public Board() {
 		setSize(800, 700);
 		setLayout(new GridLayout(8, 8));
 		cases = new Case[8][8];
 		createCases();
-
+		pieceBox=new ArrayList<Piece>();
 		initPieces();
 	}
 
@@ -24,6 +27,7 @@ public class Board extends JPanel {
 		setLayout(new GridLayout(8, 8));
 		cases = new Case[8][8];
 		createCases();
+		pieceBox=new ArrayList<Piece>();
 
 		initPieces();
 	}
@@ -38,6 +42,7 @@ public class Board extends JPanel {
 	public void addPiece(Piece p, int x, int y) {
 
 		cases[x][y].setPiece(p);
+		pieceBox.add(p);
 
 	}
 
@@ -73,6 +78,9 @@ public class Board extends JPanel {
 
 	public void afficherTout() {
 		paintAll(getGraphics());
+	}
+	public ArrayList<Piece> getAllPieces(){
+	   return pieceBox;
 	}
 
 }

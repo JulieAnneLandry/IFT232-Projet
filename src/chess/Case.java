@@ -52,6 +52,9 @@ public class Case extends JPanel implements MouseListener {
 	public Point getPoint(){
 		return pXY;
 	}
+	public String getPointasString(){
+	    return "("+pXY.x + ","+pXY.y + ")";
+	}
 
 	public void afficherPiece() {
 		update(getGraphics());
