@@ -32,14 +32,14 @@ public class SavePosition extends Save
         for(Piece lapiece:mespieces){
             char equipe=lapiece.getTeam();
             char key=lapiece.pieceKey();
-            int x=lapiece.getCase().getPoint().x;
-            int y=lapiece.getCase().getPoint().y;
+            char x=(char)lapiece.getCase().getPoint().x;
+            char y=(char)lapiece.getCase().getPoint().y;
             
             out.writeChar(equipe);
             out.writeChar(key);
-            out.writeInt(x);
+            out.writeChar(x);
             out.writeChar(',');
-            out.writeInt(y);
+            out.writeChar(y);
             out.writeChar('\n');
          
             

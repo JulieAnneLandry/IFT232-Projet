@@ -32,6 +32,29 @@ public class Board extends JPanel {
 		initPieces();
 	}
 
+	public Board(ArrayList<Piece> pieces) {
+		setSize(800, 700);
+		setLayout(new GridLayout(8, 8));
+		cases = new Case[8][8];
+		createCases();
+		pieceBox = pieces;
+		//initPieces();
+		
+		initFromFile(pieceBox);
+	}
+
+	private void initFromFile(ArrayList<Piece> pieces) {
+		
+		for (Piece p : pieces)
+		{
+			addExistingPieces(p, (int)p.getCase().getPoint().getX(), (int)p.getCase().getPoint().getY());
+		}
+	}
+
+	private void addExistingPieces(Piece p, int x, int y) {
+		cases[x][y].setPiece(p);
+	}
+
 	public void initPieces() {
 
 		initTeam(true, 0, 1);
@@ -64,14 +87,16 @@ public class Board extends JPanel {
 		addPiece(new Queen(team), row, 3);
 
 		addPiece(new King(team), row, 4);
+		
+		
 	}
 
 	private void createCases() {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				Case p = new Case(i, j);
-				add(p);
-				cases[i][j] = p;
+				Case c = new Case(i, j);
+				add(c);
+				cases[i][j] = c;
 			}
 		}
 	}
@@ -79,6 +104,7 @@ public class Board extends JPanel {
 	public void afficherTout() {
 		paintAll(getGraphics());
 	}
+	
 	public ArrayList<Piece> getAllPieces(){
 	   return pieceBox;
 	}
