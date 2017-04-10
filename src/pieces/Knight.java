@@ -18,10 +18,10 @@ public class Knight extends Piece {
 		}
 	}
 
-	@Override
+	/*@Override
 	public void setOptions() {
 
-	}
+	}*/
 
   
 

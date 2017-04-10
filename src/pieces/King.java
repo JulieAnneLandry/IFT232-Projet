@@ -17,11 +17,11 @@ public class King extends Piece {
 		}
 	}
 
-	@Override
+	/*@Override
 	public void setOptions() {
 		// TODO Auto-generated method stub
 
-	}
+	}*/
 
     @Override
     public char pieceKey()

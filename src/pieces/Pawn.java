@@ -17,10 +17,10 @@ public class Pawn extends Piece {
 		}
 	}
 
-	@Override
+	/*@Override
 	public void setOptions() {
 
-	}
+	}*/
 
    
 

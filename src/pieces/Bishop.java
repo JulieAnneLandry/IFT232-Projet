@@ -18,11 +18,11 @@ public class Bishop extends Piece {
 		}
 	}
 
-	@Override
+	/*@Override
 	public void setOptions() {
 		// TODO Auto-generated method stub
 
-	}
+	}*/
 
     
 
