@@ -1,5 +1,7 @@
 package pieces;
 
+import java.awt.Point;
+
 //import java.awt.Point;
 
 import javax.swing.Icon;
@@ -29,6 +31,13 @@ public class Rook extends Piece {
 		 * options.add(opt);
 		 *  }
 		 */
+	    for (int i=0; i<8;++i)
+	        for(int j=0;j<8;++j)  
+	            options.add(new Point(i,j));
+	    for(Point p :options){
+	        if(myCase.getPoint().x != p.x && myCase.getPoint().y != p.y )
+	            options.remove(p);
+	    }
 	}
 
 
