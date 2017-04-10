@@ -1,6 +1,7 @@
 package pieces;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 //import java.awt.Point;
 
@@ -31,13 +32,22 @@ public class Rook extends Piece {
 		 * options.add(opt);
 		 *  }
 		 */
+		
+		ArrayList<Point> optionsTemp = new ArrayList<Point>();
+		
 	    for (int i=0; i<8;++i)
 	        for(int j=0;j<8;++j)  
 	            options.add(new Point(i,j));
 	    for(Point p :options){
 	        if(myCase.getPoint().x != p.x && myCase.getPoint().y != p.y )
-	            options.remove(p);
+	        	continue;
+	        else
+	        {
+	        	optionsTemp.add(p);
+	        }
 	    }
+	    
+	    options = optionsTemp;
 	}
 
 
