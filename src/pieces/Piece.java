@@ -33,8 +33,12 @@ public abstract class Piece implements Serializable{
 			return false;
 		}
 	}
-
 	public abstract void setOptions();
+	
+	public ArrayList<Point> getOptions(){
+	    return options;
+	}
+	
 	public Case getCase(){
 	    return myCase;
 	}
