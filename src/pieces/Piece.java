@@ -48,10 +48,12 @@ public abstract class Piece implements Serializable{
 	public Case getCase(){
 	    return myCase;
 	}
+	
 	public char getTeam(){
 	    if(team)return 'n';
 	    else{return 'b';}
 	}
+	
 	public String toString(){
 	    String x=""+ myCase.getPoint().x;
 	    String y=""+ myCase.getPoint().y;
@@ -59,5 +61,6 @@ public abstract class Piece implements Serializable{
 	    String key=""+pieceKey();
 	    return equipe+key+x+y+"\n";
 	}
+	
 	public abstract char pieceKey();
 }

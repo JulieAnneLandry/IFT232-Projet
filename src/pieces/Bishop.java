@@ -10,12 +10,14 @@ public class Bishop extends Piece {
 	private static final Icon BISHOP_WHITE = new ImageIcon("res/fouBlanc.png");
 
 	
-	public Bishop(boolean team) {
-		if (team) {
+	public Bishop(boolean t) {
+		if (t) {
 			img = BISHOP_GOLD;
 		} else {
 			img = BISHOP_WHITE;
 		}
+		
+		team = t;
 	}
 
 	/*@Override
