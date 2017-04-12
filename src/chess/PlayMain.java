@@ -13,7 +13,7 @@ public class PlayMain {
 
 	public static void main(String[] args) {
 
-		Load l = new LoadFromFile();
+		Load l = new LoadfromFile();
 		ArrayList<Piece> pieces = l.load();
 		
 		/*
