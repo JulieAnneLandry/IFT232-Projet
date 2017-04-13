@@ -12,12 +12,14 @@ public class Queen extends Piece {
     private static final Icon QUEEN_GOLD = new ImageIcon("res/reineDore.png");
 	private static final Icon QUEEN_WHITE = new ImageIcon("res/reineBlanc.png");
 
-	public Queen(boolean team) {
-		if (team) {
+	public Queen(boolean t) {
+		if (t) {
 			img = QUEEN_GOLD;
 		} else {
 			img = QUEEN_WHITE;
 		}
+		
+		team = t;
 	}
 
 	@Override
@@ -72,6 +74,6 @@ public class Queen extends Piece {
     @Override
     public char pieceKey()
     {
-        return 'R';
+        return 'D';
     }
 }

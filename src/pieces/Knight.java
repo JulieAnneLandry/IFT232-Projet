@@ -15,9 +15,9 @@ public class Knight extends Piece
     private static final Icon KNIGHT_GOLD = new ImageIcon("res/cavalierDore.png");
     private static final Icon KNIGHT_WHITE = new ImageIcon("res/cavalierBlanc.png");
 
-    public Knight(boolean team)
+    public Knight(boolean t)
     {
-        if (team)
+        if (t)
         {
             img = KNIGHT_GOLD;
         }
@@ -25,6 +25,8 @@ public class Knight extends Piece
         {
             img = KNIGHT_WHITE;
         }
+		
+		team = t;
     }
 
     @Override

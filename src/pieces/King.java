@@ -14,12 +14,14 @@ public class King extends Piece {
     private static final Icon KING_GOLD = new ImageIcon("res/roiDore.png");
 	private static final Icon KING_WHITE = new ImageIcon("res/roiBlanc.png");
 
-	public King(boolean team) {
-		if (team) {
+	public King(boolean t) {
+		if (t) {
 			img = KING_GOLD;
 		} else {
 			img = KING_WHITE;
 		}
+		
+		team = t;
 	}
 
 	@Override

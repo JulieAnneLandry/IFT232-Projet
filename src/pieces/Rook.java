@@ -15,9 +15,9 @@ public class Rook extends Piece
     private static final Icon ROOK_GOLD = new ImageIcon("res/tourDore.png");
     private static final Icon ROOK_WHITE = new ImageIcon("res/tourBlanc.png");
 
-    public Rook(boolean team)
+    public Rook(boolean t)
     {
-        if (team)
+        if (t)
         {
             img = ROOK_GOLD;
         }
@@ -25,6 +25,8 @@ public class Rook extends Piece
         {
             img = ROOK_WHITE;
         }
+		
+		team = t;
     }
 
     @Override

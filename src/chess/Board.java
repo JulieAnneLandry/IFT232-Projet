@@ -31,6 +31,63 @@ public class Board extends JPanel {
 
 		initPieces();
 	}
+	
+	public Board(ArrayList<Piece> pieces) {
+		setSize(800, 700);
+		setLayout(new GridLayout(8, 8));
+		cases = new Case[8][8];
+		createCases();
+		pieceBox = pieces;
+		//initPieces();
+		
+		initFromFile(pieceBox);
+		
+		//initFromPosition(pieceBox);
+	}
+	
+	/*
+	 * CECI EST DU GARBAGE. À REFAIRE.
+	 * Ne pas supprimer. Il s'agit d'une leçon importante à retenir.
+	 * Maxime et Julie-Anne
+	 * xxx
+	 */
+	/*private void initFromPosition(ArrayList<Piece> pieces)
+	{
+		ArrayList<Case> casesBox = new ArrayList<Case>();
+		for (Piece p : pieces)
+		{
+			casesBox.add(p.getCase());
+		}
+		
+		int k = 0;
+		
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				
+				Case c = new Case(i, j);
+				if (!casesBox.contains(c))
+				{
+					casesBox.add(c);
+				}
+				add(casesBox.get(k));
+				cases[i][j] = casesBox.get(k);
+				
+				++k;
+			}
+		}
+	}*/
+	
+	private void initFromFile(ArrayList<Piece> pieces) {
+		
+		for (Piece p : pieces)
+		{
+			addExistingPieces(p, (int)p.getCase().getPoint().getX(), (int)p.getCase().getPoint().getY());
+		}
+	}
+
+	private void addExistingPieces(Piece p, int x, int y) {
+		cases[x][y].setPiece(p);
+	}
 
 	public void initPieces() {
 
@@ -69,9 +126,9 @@ public class Board extends JPanel {
 	private void createCases() {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				Case p = new Case(j,i);
-				add(p);
-				cases[i][j] = p;
+				Case c = new Case(j,i);
+				add(c);
+				cases[i][j] = c;
 			}
 		}
 	}

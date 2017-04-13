@@ -28,7 +28,7 @@ public class TestOptionPiece
     
     @Before   
     public void testOptionPiece(){
-        b= new Board();
+       b = new Board();
        verifPoint = new ArrayList<Point>();
     }
     
@@ -54,18 +54,26 @@ public class TestOptionPiece
         testList = testList2;
         
         for (int i=0;i<8;++i){
-        	if ((i+3) < 8)
-        		verifPoint.add(new Point(i,i+3));
-        	if ((7-i) >= 0)
-        		verifPoint.add(new Point(7-i,i+3));
         	
         	verifPoint.add(new Point(i,3));
             verifPoint.add(new Point(0,i));
         }
-           
+        
+        verifPoint.add(new Point(3,0));
+        verifPoint.add(new Point(2,1));
+        verifPoint.add(new Point(1,2));
+        
+        verifPoint.add(new Point(1,4));
+        verifPoint.add(new Point(2,5));
+        verifPoint.add(new Point(3,6));
+        verifPoint.add(new Point(4,7));
+        
+        verifPoint.remove(new Point(0,3));
+        verifPoint.remove(new Point(0,3));
+        
         for(Piece P:testList){
             if(P.getCase().getPoint().x==0 && P.getCase().getPoint().y==3){
-                queenTest =P;
+                queenTest = P;
                 
                 break;
             }
@@ -102,10 +110,8 @@ public class TestOptionPiece
         
         testList = testList2;
         
-        for (int i=0;i<8;++i){
-            verifPoint.add(new Point(i,i+2));
-            verifPoint.add(new Point(7-i,i+2));
-        }
+        verifPoint.add(new Point(2,0));
+        verifPoint.add(new Point(3,0));
            
         for(Piece P:testList){
             if(P.getCase().getPoint().x==1 && P.getCase().getPoint().y==0){
@@ -114,6 +120,7 @@ public class TestOptionPiece
                 break;
             }
         }
+        
         boolean testResult=true;
         for(Point p :verifPoint){
             if(!pawnTest.getOptions().contains(p)){
@@ -146,10 +153,8 @@ public class TestOptionPiece
         
         testList = testList2;
         
-        for (int i=0;i<8;++i){
-            verifPoint.add(new Point(i,i+2));
-            verifPoint.add(new Point(7-i,i+2));
-        }
+        verifPoint.add(new Point(2,0));
+        verifPoint.add(new Point(2,2));
            
         for(Piece P:testList){
             if(P.getCase().getPoint().x==0 && P.getCase().getPoint().y==1){
@@ -190,10 +195,11 @@ public class TestOptionPiece
         
         testList = testList2;
         
-        for (int i=0;i<8;++i){
-            verifPoint.add(new Point(i,0));
-            verifPoint.add(new Point(0,i));
-        }
+        verifPoint.add(new Point(0,3));
+        verifPoint.add(new Point(0,5));
+        verifPoint.add(new Point(1,3));
+        verifPoint.add(new Point(1,4));
+        verifPoint.add(new Point(1,5));
            
         for(Piece P:testList){
             if(P.getCase().getPoint().x==0 && P.getCase().getPoint().y==4){
@@ -234,12 +240,13 @@ public class TestOptionPiece
         
         testList = testList2;
         
-        for (int i=0;i<8;++i){
-        	if ((i+2) < 8)
-        		verifPoint.add(new Point(i,i+2));
-        	if ((7-i) >= 0)
-        		verifPoint.add(new Point(7-i,i+2));
-        }
+        verifPoint.add(new Point(2,0));
+        verifPoint.add(new Point(1,1));
+        verifPoint.add(new Point(1,3));
+        verifPoint.add(new Point(2,4));
+        verifPoint.add(new Point(3,5));
+        verifPoint.add(new Point(4,6));
+        verifPoint.add(new Point(5,7));
            
         for(Piece P:testList){
             if(P.getCase().getPoint().x==0 && P.getCase().getPoint().y==2){
@@ -281,14 +288,14 @@ public class TestOptionPiece
         
         testList = testList2;
         
-        for (int i=0;i<8;++i){
+        for (int i=1;i<8;++i){
             verifPoint.add(new Point(i,0));
             verifPoint.add(new Point(0,i));
         }
            
         for(Piece P:testList){
             if(P.getCase().getPoint().x==0 && P.getCase().getPoint().y==0){
-                rookTest =P;
+                rookTest = P;
             }  
         }
         boolean testResult=true;
