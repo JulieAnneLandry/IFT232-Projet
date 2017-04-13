@@ -61,7 +61,7 @@ public class Case extends JPanel implements MouseListener {
 	}
 
 	public void mouseClicked(MouseEvent e) {
-	    P.p("Clicked here: " + this.pXY);
+
 		if (MovingPiece.isEmpty()) {
 			MovingPiece.take(piece, this);
 		} else {
