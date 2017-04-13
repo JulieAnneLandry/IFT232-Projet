@@ -44,6 +44,7 @@ public class Board extends JPanel {
 		
 		//initFromPosition(pieceBox);
 	}
+	
 	/*
 	 * CECI EST DU GARBAGE. À REFAIRE.
 	 * Ne pas supprimer. Il s'agit d'une leçon importante à retenir.
@@ -75,6 +76,7 @@ public class Board extends JPanel {
 			}
 		}
 	}*/
+
 	private void initFromFile(ArrayList<Piece> pieces) {
 		
 		for (Piece p : pieces)
@@ -86,6 +88,7 @@ public class Board extends JPanel {
 	private void addExistingPieces(Piece p, int x, int y) {
 		cases[x][y].setPiece(p);
 	}
+
 	public void initPieces() {
 
 		initTeam(true, 0, 1);
@@ -118,6 +121,8 @@ public class Board extends JPanel {
 		addPiece(new Queen(team), row, 3);
 
 		addPiece(new King(team), row, 4);
+		
+		
 	}
 
 	private void createCases() {
@@ -133,6 +138,7 @@ public class Board extends JPanel {
 	public void afficherTout() {
 		paintAll(getGraphics());
 	}
+	
 	public ArrayList<Piece> getAllPieces(){
 	   return pieceBox;
 	}
