@@ -48,7 +48,6 @@ public class Rook extends Piece {
 	        	optionsTemp.add(p);
 	        }
 	    }
-	    optionsTemp.remove(myCase.getPoint());
 	    
 	    options = optionsTemp;
 	}

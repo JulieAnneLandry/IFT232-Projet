@@ -41,7 +41,41 @@ public class Board extends JPanel {
 		//initPieces();
 		
 		initFromFile(pieceBox);
+		
+		//initFromPosition(pieceBox);
 	}
+	
+	/*
+	 * CECI EST DU GARBAGE. À REFAIRE.
+	 * Ne pas supprimer. Il s'agit d'une leçon importante à retenir.
+	 * Maxime et Julie-Anne
+	 * xxx
+	 */
+	/*private void initFromPosition(ArrayList<Piece> pieces)
+	{
+		ArrayList<Case> casesBox = new ArrayList<Case>();
+		for (Piece p : pieces)
+		{
+			casesBox.add(p.getCase());
+		}
+		
+		int k = 0;
+		
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				
+				Case c = new Case(i, j);
+				if (!casesBox.contains(c))
+				{
+					casesBox.add(c);
+				}
+				add(casesBox.get(k));
+				cases[i][j] = casesBox.get(k);
+				
+				++k;
+			}
+		}
+	}*/
 
 	private void initFromFile(ArrayList<Piece> pieces) {
 		
