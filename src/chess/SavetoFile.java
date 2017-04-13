@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import pieces.Piece;
 
-public class SaveToFile extends Save
+public class SavetoFile extends Save
 {
 
     @Override

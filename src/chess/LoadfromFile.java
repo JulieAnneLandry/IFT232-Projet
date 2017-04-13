@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import pieces.Piece;
 
-public class LoadFromFile extends Load
+public class LoadfromFile extends Load
 {
 
     @Override
