@@ -1,92 +1,52 @@
 package chess;
 
-import java.awt.*;
 import java.util.ArrayList;
 
-import javax.swing.*;
+import pieces.Bishop;
+import pieces.King;
+import pieces.Knight;
+import pieces.Pawn;
+import pieces.Piece;
+import pieces.Queen;
+import pieces.Rook;
 
-import pieces.*;
+public class Board {
 
-public class Board extends JPanel {
-
-	private static final long serialVersionUID = 1L;
-	protected Case[][] cases;
+	protected static Case[][] cases = new Case[8][8];
 	private ArrayList<Piece> pieceBox;
 
 	public Board() {
-		setSize(800, 700);
-		setLayout(new GridLayout(8, 8));
-		cases = new Case[8][8];
 		createCases();
-		pieceBox=new ArrayList<Piece>();
+		pieceBox = new ArrayList<Piece>();
 		initPieces();
-	}
-
-	public Board(int h, int w) {
-		setSize(h, w);
-		setLayout(new GridLayout(8, 8));
-		cases = new Case[8][8];
-		createCases();
-		pieceBox=new ArrayList<Piece>();
-
-		initPieces();
-	}
-
-	public Board(ArrayList<Piece> pieces) {
-		setSize(800, 700);
-		setLayout(new GridLayout(8, 8));
-		cases = new Case[8][8];
-		createCases();
-		pieceBox = pieces;
-		//initPieces();
-		
-		initFromFile(pieceBox);
-		
-		//initFromPosition(pieceBox);
 	}
 	
-	/*
-	 * CECI EST DU GARBAGE. À REFAIRE.
-	 * Ne pas supprimer. Il s'agit d'une leçon importante à retenir.
-	 * Maxime et Julie-Anne
-	 * xxx
-	 */
-	/*private void initFromPosition(ArrayList<Piece> pieces)
+	public Board(ArrayList<Piece> pieces)
 	{
-		ArrayList<Case> casesBox = new ArrayList<Case>();
-		for (Piece p : pieces)
-		{
-			casesBox.add(p.getCase());
-		}
-		
-		int k = 0;
-		
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				
-				Case c = new Case(i, j);
-				if (!casesBox.contains(c))
-				{
-					casesBox.add(c);
-				}
-				add(casesBox.get(k));
-				cases[i][j] = casesBox.get(k);
-				
-				++k;
-			}
-		}
-	}*/
-
-	private void initFromFile(ArrayList<Piece> pieces) {
-		
+		createCases();
+		pieceBox = pieces;
+		initFromFile(pieceBox);
+	}
+	
+	public void initFromFile(ArrayList<Piece> pieces)
+	{
 		for (Piece p : pieces)
 		{
 			addExistingPieces(p, (int)p.getCase().getPoint().getX(), (int)p.getCase().getPoint().getY());
 		}
 	}
-
-	private void addExistingPieces(Piece p, int x, int y) {
+	
+	private void addExistingPieces(Piece p, int x, int y)
+	{
 		cases[x][y].setPiece(p);
+	}
+
+	public static Case getCase(int i, int j) {
+		return cases[i][j];
+	}
+
+	public ArrayList<Piece> getAllPieces() {
+		return pieceBox;
 	}
 
 	public void initPieces() {
@@ -118,29 +78,17 @@ public class Board extends JPanel {
 		addPiece(new Bishop(team), row, 2);
 		addPiece(new Bishop(team), row, 5);
 
-		addPiece(new Queen(team), row, 3);
+		addPiece(new Queen(team), row, 4);
 
-		addPiece(new King(team), row, 4);
-		
-		
+		addPiece(new King(team), row, 3);
 	}
 
 	private void createCases() {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				Case c = new Case(i, j);
-				add(c);
-				cases[i][j] = c;
+				cases[i][j] = new Case(j, i);
 			}
 		}
-	}
-
-	public void afficherTout() {
-		paintAll(getGraphics());
-	}
-	
-	public ArrayList<Piece> getAllPieces(){
-	   return pieceBox;
 	}
 
 }

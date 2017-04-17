@@ -28,9 +28,7 @@ public class LoadFromPosition extends Load {
 			
 			try {
 				
-				char t, key;
-                int y;
-                int x;
+				char t, key, charX, charY;
 				boolean team = true;
 				Piece piece = null;
 				Case c;
@@ -51,8 +49,11 @@ public class LoadFromPosition extends Load {
 					else
 						team = true;
 					key = line.charAt(1);
-					x = (int)line.charAt(2);
-					y = (int)line.charAt(4);
+					charX = line.charAt(2);
+					charY = line.charAt(4);
+					int x = Character.getNumericValue(charX);
+					int y = Character.getNumericValue(charY);
+					
 					c = new Case(x, y);
 					
 					switch(key)

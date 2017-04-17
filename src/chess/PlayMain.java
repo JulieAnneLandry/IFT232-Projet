@@ -1,41 +1,37 @@
 package chess;
 
-
-
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 
-import pieces.Piece;
-
+import frames.ChessFrame;
+import frames.ChessMenu;
 
 public class PlayMain {
 
 	public static void main(String[] args) {
 
-		Load l = new LoadFromFile();
-		ArrayList<Piece> pieces = l.load();
+		ChessFrame frame = new ChessFrame();
 		
-		Load l2 = new LoadFromPosition();
-		ArrayList<Piece> pieces2 = l2.load();
 		
-		/*
-		 * Enlever le paramètre pour loader le board de départ
-		 * (pieces est une liste de pièces provenant du fichier saveFile.txt)
-		 */
-		Board grille = new Board(pieces);
+		
+		/*ChessMenu menu;
+
+		menu = new ChessMenu();
+
+		Board grille = new Board();
+		
 		grille.afficherTout();
-		/*Save s = new SaveToFile();
-		s.save(grille);*/
-		
-		
+		Save s = new SavetoFile();
+		s.save(grille);
+
 		JFrame frame = new JFrame();
+		frame.setTitle("�checs");
+		frame.setJMenuBar(menu);
 		frame.setSize(800, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.add(grille);
-		frame.setVisible(true);
-		
+		frame.setVisible(true);*/
+
 	}
 
 }

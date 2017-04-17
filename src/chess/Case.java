@@ -2,72 +2,47 @@ package chess;
 
 import java.awt.Color;
 import java.awt.Point;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
 import pieces.Piece;
 
-public class Case extends JPanel implements MouseListener {
+public class Case extends JLabel implements MouseListener {
 
 	private static final long serialVersionUID = 1L;
 	private Point pXY;
-
-	private JLabel label;
 	private Piece piece;
 
-	public Case() {
-		super();
-		addMouseListener(this);
+	public Case(int x, int y) {
+		pXY = new Point(x, y);
+		this.setHorizontalAlignment(SwingConstants.CENTER);
+		this.setColor(x, y);
+		this.addMouseListener(this);
 	}
 
-	// Constructeur de carre avec identificateur
-	public Case(int x, int y) {
-		super();
-
-		setName((x + 1) + "," + (y + 1));
-		pXY = new Point(x, y);
-		setColor(x, y);
-
-		label = new JLabel();
-		piece = null;
-		add(label);
-
-		addMouseListener(this);
+	public Piece getPiece() {
+		return piece;
 	}
 
 	public void setPiece(Piece p) {
 		piece = p;
 		piece.setCase(this);
-		label.setIcon(p.getImage());
-		afficherPiece();
+		setIcon(p.getImage());
 	}
 
 	public void removePiece() {
 		piece = null;
-		label.setIcon(null);
-		afficherPiece();
+		setIcon(null);
 	}
-	
-	public Point getPoint(){
+
+	public Point getPoint() {
 		return pXY;
 	}
-	public String getPointasString(){
-	    return "("+pXY.x + ","+pXY.y + ")";
-	}
 
-	public void afficherPiece() {
-		update(getGraphics());
-	}
-
-	public void mouseClicked(MouseEvent e) {
-
-		if (MovingPiece.isEmpty()) {
-			MovingPiece.take(piece, this);
-		} else {
-			MovingPiece.place(this);
-		}
-
+	public String getPointasString() {
+		return "(" + pXY.x + "," + pXY.y + ")";
 	}
 
 	// Choisir la couleur du carre en fonction de sa position sur la grille
@@ -77,20 +52,33 @@ public class Case extends JPanel implements MouseListener {
 		} else {
 			setBackground(Color.BLACK);
 		}
+		setOpaque(true);
 	}
 
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		P.p("Clicked here: " + getPoint());
+
+		if (MovingPiece.isEmpty()) {
+			MovingPiece.take(this);
+		} else {
+			MovingPiece.place(this);
+		}
+	}
+
+	@Override
 	public void mousePressed(MouseEvent e) {
 	}
 
+	@Override
 	public void mouseReleased(MouseEvent e) {
 	}
 
-	// Lorsque la souris entre sur la case
+	@Override
 	public void mouseEntered(MouseEvent e) {
-		// System.out.println("Case: " + getName()); // Pour tester le systeme
-		// de coordonnees, code jetable
 	}
 
+	@Override
 	public void mouseExited(MouseEvent e) {
 	}
 
